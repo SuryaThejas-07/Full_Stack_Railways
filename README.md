@@ -4,27 +4,6 @@ A comprehensive, full-stack railway ticket booking and management system with an
 
 ---
 
-## 📋 Table of Contents
-
-- [Overview](#overview)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Project Structure](#project-structure)
-- [Getting Started](#getting-started)
-- [Installation](#installation)
-- [Available Scripts](#available-scripts)
-- [Configuration](#configuration)
-- [Components](#components)
-- [Services](#services)
-- [Authentication](#authentication)
-- [Database](#database)
-- [Development Workflow](#development-workflow)
-- [Deployment](#deployment)
-- [Contributing](#contributing)
-- [License](#license)
-
----
-
 ## 🎯 Overview
 
 Railway Rover is a modern web application built with **React**, **TypeScript**, and **Firebase** that enables users to:
@@ -447,13 +426,32 @@ Contributions are welcome! Please follow these steps:
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the **MIT License** - a permissive open-source license that allows you to:
+
+- ✅ Use the software for any purpose
+- ✅ Copy, modify, and distribute the software
+- ✅ Include the software in proprietary applications
+- ✅ Sublicense the software
+
+### License Terms
+
+The only requirement is to include the original copyright notice and license in any copies or substantial portions of the software.
+
+**Full License:** See the [LICENSE](LICENSE) file for the complete MIT License text.
+
+### Copyright
+
+© 2024 Surya Thejas. All rights reserved.
+
+### Disclaimer
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
 
 ---
 
 ## 📞 Support
 
-For support, email [your-email@example.com] or create an issue in the GitHub repository.
+For support, email [suryathejas970@gmail.com] or create an issue in the GitHub repository.
 
 ---
 
