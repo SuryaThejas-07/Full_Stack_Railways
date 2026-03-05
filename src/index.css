@@ -132,6 +132,14 @@
   .animate-slide-up {
     animation: slideUp 0.5s ease-out;
   }
+  .train-running {
+    animation: trainRun 6s linear infinite;
+  }
+}
+
+@keyframes trainRun {
+  0% { left: -200px; }
+  100% { left: 100%; }
 }
 
 @keyframes fadeIn {
