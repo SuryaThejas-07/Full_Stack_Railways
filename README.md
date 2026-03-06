@@ -1,6 +1,6 @@
 # 🚂 Railway Rover
 
-A comprehensive, full-stack railway ticket booking and management system with an intuitive user interface, secure authentication, and real-time train management capabilities.
+A feature-rich, full-stack railway ticket booking and management platform built with modern web technologies. Experience seamless train search, multi-passenger bookings (1-4 passengers), instant PDF ticket generation, and secure payments. Includes an advanced admin dashboard with real-time statistics, occupancy tracking, and auto-scheduling capabilities. Built with React, TypeScript, Firebase, and Tailwind CSS for a beautiful, responsive experience across all devices. Featuring dark mode with glowing accents, comprehensive PNR tracking, and production-ready infrastructure.
 
 ---
 
@@ -19,33 +19,60 @@ The application provides a seamless experience for both passengers and administr
 
 ---
 
+## ⭐ Key Highlights
+
+### 🎯 Multi-Passenger Booking System
+- Book tickets for **1-4 passengers** in a single transaction
+- Dynamic form with real-time validation
+- Seat selection and availability management
+- Progress tracking through booking flow
+
+### 📄 Professional PDF Ticket Generation
+- Generate high-quality PDF tickets instantly
+- Download from Dashboard or Booking Confirmation
+- Complete booking details included (PNR, times, fares, passenger info)
+- Beautiful formatting with proper typography
+
+### 🎛️ Advanced Admin Dashboard
+- Real-time statistics dashboard
+- **Auto-generate 30-day train schedules** in one click
+- Visual occupancy tracking with progress bars
+- Complete train and station management
+
+---
+
 ## ✨ Features
 
 ### User Features
 
-- 🔐 **Secure Authentication** - User registration and login with Firebase
-- 🚂 **Train Search** - Search trains by source, destination, and date
-- 🎫 **Booking System** - Easy-to-use ticket booking interface
-- 💳 **Payment Processing** - Secure payment gateway integration
-- 📋 **PNR Tracking** - Check booking status and ticket details
-- 👤 **Passenger Details** - Manage passenger information
-- 🎨 **Responsive Design** - Works seamlessly on desktop, tablet, and mobile
+- 🔐 **Secure Authentication** - Email/Password & Google OAuth with Firebase
+- 🚂 **Smart Train Search** - Filter by source, destination, date with validation
+- 🎫 **Multi-Passenger Booking** - Support for 1-4 passengers per transaction
+- 💳 **Secure Payments** - Integrated payment processing
+- 📄 **Instant PDF Tickets** - Download professional tickets instantly
+- 📋 **PNR Tracking** - Real-time booking status and ticket details
+- 👤 **Passenger Management** - Store and manage passenger information
+- 🎨 **Stunning UI** - Modern gradient design with dark mode support
+- 📱 **Fully Responsive** - Desktop, tablet, and mobile optimized
 
 ### Admin Features
 
-- 📊 **Dashboard** - Overview of bookings and system statistics
-- 🏢 **Train Management** - Add, edit, and manage train information
-- 🚉 **Station Management** - Manage railway stations
-- 📈 **Analytics** - Booking trends and passenger insights
+- 📊 **Advanced Dashboard** - Statistics, analytics, occupancy overview
+- 🏢 **Train Management** - Create, edit, delete trains with capacity tracking
+- 🚉 **Station Management** - Manage railway stations and routes
+- ⏰ **Auto-Schedule Generator** - Create 30-day schedules with one click
+- 📈 **Visual Occupancy** - Real-time seat availability with progress bars
+- 💼 **Booking Management** - Track and manage all customer bookings
 
 ### Technical Features
 
-- ⚡ **Fast Performance** - Optimized with Vite for rapid development
-- 🎨 **Modern UI** - shadcn/ui components with Tailwind CSS styling
-- 📱 **Mobile Optimized** - Fully responsive and mobile-first design
-- 🔄 **Real-time Updates** - Firebase Firestore for instant data synchronization
-- 🛡️ **Type Safety** - Full TypeScript support
-- ✅ **Testing** - Vitest configured for unit and integration tests
+- ⚡ **Lightning Fast** - Vite with HMR and optimized builds
+- 🎨 **Premium Components** - shadcn/ui with Tailwind CSS
+- 🌓 **Dark Mode** - Complete dark theme with glowing accents
+- 📱 **Mobile First** - Responsive design across all devices
+- 🔄 **Real-time Sync** - Firebase Firestore for live updates
+- 🛡️ **Type Safe** - Full TypeScript support
+- ✅ **Production Ready** - Thoroughly tested and optimized
 
 ---
 
@@ -201,7 +228,7 @@ export const firebaseConfig = {
 npm run dev
 ```
 
-The application will be available at `http://localhost:5173`
+The application will be available at `http://localhost:5175` (or the next available port if 5173-5174 are in use)
 
 ---
 
@@ -244,9 +271,10 @@ npm run lint
 
 ### Vite Configuration
 
-- **Port:** 5173 (default)
+- **Port:** 5173 (default), auto-increments if busy (5174, 5175, etc.)
 - **Proxy:** Can be configured in `vite.config.ts`
 - **Build Output:** `dist/` folder
+- **Hot Module Replacement:** Enabled for instant code updates during development
 
 ### TypeScript
 
@@ -350,7 +378,86 @@ Customized in `tailwind.config.ts` with:
 
 ---
 
-## 👥 Development Workflow
+## 🎨 UI/UX Design
+
+### Visual Excellence
+- **Striking Light Mode** - Beautiful blue-tinted inputs with white backgrounds
+- **Premium Gradients** - Enhanced button and form styling with depth
+- **Dark Mode Support** - Complete dark theme with proper contrast
+- **Glowing Effects** - Animated blue glow on calendar icon in dark mode
+- **Smooth Animations** - Hover effects, transitions, and interactive feedback
+- **Shadow Layering** - Strategic depth and visual hierarchy
+
+### Accessibility & Usability
+- Focus indicators for keyboard navigation
+- Proper color contrast ratios (WCAG AA compliant)
+- Semantic HTML structure for screen readers
+- ARIA labels where needed
+- Mobile-friendly touch targets
+
+---
+
+## 📸 Demo & Screenshots
+
+### Key Pages
+
+**Home Page**
+- Hero section with compelling tagline: "Your Journey. Our Priority"
+- Advanced search form with beautiful design
+- Statistics display (50L+ travellers, 2L+ bookings, 4.8★ rating, 24/7 support)
+
+**Search & Booking Flow**
+1. Search Results - Filter trains by date, price, availability
+2. Passenger Details - Collect 1-4 passenger information with seat selection
+3. Payment Page - Complete order summary and breakdown
+4. Booking Confirmation - Instant PNR, PDF download, ticket details
+
+**Dashboard**
+- All bookings in card format
+- Download PDF tickets
+- Cancel bookings option
+- View booking details
+
+**Admin Panel**
+- Real-time statistics dashboard
+- Train occupancy visualization
+- Auto-generate 30-day schedules
+- Station management
+
+---
+
+## 🚀 Recent Improvements
+
+### Visual Design Enhancements ✨
+- ✅ Completely redesigned SearchForm with premium styling
+- ✅ Blue gradient inputs with bold borders
+- ✅ Smooth button animations and hover states
+- ✅ Glowing calendar icon in dark mode (pulsing animation)
+- ✅ Enhanced shadows and depth perception
+- ✅ Better typography and visual hierarchy
+
+### Core Features Added
+- ✅ **Multi-passenger booking** - Support 1-4 passengers per ticket
+- ✅ **PDF ticket generation** - Professional quality tickets
+- ✅ **Admin dashboard** - Statistics, analytics, management
+- ✅ **Auto-schedule generator** - Create 30-day schedules instantly
+- ✅ **Occupancy visualization** - Real-time seat availability tracking
+
+### Data & Backend Improvements
+- ✅ Enhanced booking schema for complete train details
+- ✅ PDF-ready data persisted with bookings
+- ✅ Backward compatible with existing data
+- ✅ Improved error handling and fallbacks
+
+### Optimizations & Fixes
+- ✅ Fixed booking confirmation navigation
+- ✅ Improved PDF encoding and formatting
+- ✅ Better currency display (Rs. format)
+- ✅ Date validation (no past bookings)
+- ✅ Source/destination validation
+- ✅ Optimized build and load times
+
+---
 
 ### Branch Strategy
 

@@ -58,10 +58,13 @@ const Navbar = () => {
           </button>
           {user ? (
             <div className="flex items-center gap-3">
-              <span className="flex items-center gap-1 text-sm text-muted-foreground">
+              <Link
+                to="/profile"
+                className="flex items-center gap-1 text-sm text-muted-foreground transition hover:text-foreground hover:bg-secondary rounded-lg px-3 py-1.5"
+              >
                 <User className="h-4 w-4" />
                 {user.email?.split("@")[0]}
-              </span>
+              </Link>
               <button
                 onClick={handleLogout}
                 className="flex items-center gap-1 rounded-lg bg-destructive/10 px-3 py-1.5 text-sm font-medium text-destructive transition hover:bg-destructive/20"
@@ -100,7 +103,12 @@ const Navbar = () => {
           <div className="flex flex-col gap-2">
             <Link to="/" onClick={() => setMenuOpen(false)} className="rounded-lg px-3 py-2 text-sm hover:bg-secondary">Home</Link>
             <Link to="/pnr-status" onClick={() => setMenuOpen(false)} className="rounded-lg px-3 py-2 text-sm hover:bg-secondary">PNR Status</Link>
-            {user && <Link to="/dashboard" onClick={() => setMenuOpen(false)} className="rounded-lg px-3 py-2 text-sm hover:bg-secondary">My Bookings</Link>}
+            {user && (
+              <>
+                <Link to="/dashboard" onClick={() => setMenuOpen(false)} className="rounded-lg px-3 py-2 text-sm hover:bg-secondary">My Bookings</Link>
+                <Link to="/profile" onClick={() => setMenuOpen(false)} className="rounded-lg px-3 py-2 text-sm hover:bg-secondary">Profile</Link>
+              </>
+            )}
             {role === "admin" && (
               <>
                 <Link to="/admin" onClick={() => setMenuOpen(false)} className="rounded-lg px-3 py-2 text-sm hover:bg-secondary">Admin</Link>

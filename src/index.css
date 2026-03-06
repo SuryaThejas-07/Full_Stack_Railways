@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    --background: 210 20% 98%;
+    --background: 210 40% 96%;
     --foreground: 220 30% 10%;
 
     --card: 0 0% 100%;
@@ -150,4 +150,15 @@
 @keyframes slideUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes calendarGlow {
+  0%, 100% { filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.5)); }
+  50% { filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.8)); }
+}
+
+@layer utilities {
+  .calendar-glow {
+    animation: calendarGlow 2s ease-in-out infinite;
+  }
 }

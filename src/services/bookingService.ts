@@ -6,6 +6,12 @@ import {
   getCollection,
 } from "@/firebase/firestore";
 
+export interface Seat {
+  seatNumber: string;
+  class: string;
+  price: number;
+}
+
 export interface Booking {
   id: string;
   userId: string;
@@ -20,6 +26,13 @@ export interface Booking {
   travelDate: string; // ISO format: YYYY-MM-DD
   PNR: string;
   bookingStatus: string;
+  seats?: Seat[];
+  totalAmount?: number;
+  fare?: number;
+  source?: string;
+  destination?: string;
+  departureTime?: string;
+  arrivalTime?: string;
   createdAt: any;
 }
 
@@ -46,7 +59,15 @@ export const createBooking = async (
   age: number,
   gender: string,
   travelDate: string, // ISO format: YYYY-MM-DD
-  amount: number
+  amount: number,
+  seats?: Seat[],
+  trainDetails?: {
+    source?: string;
+    destination?: string;
+    departureTime?: string;
+    arrivalTime?: string;
+    fare?: number;
+  }
 ) => {
   const { coach, seatNumber } = generateSeat();
   const PNR = generatePNR();
@@ -72,6 +93,13 @@ export const createBooking = async (
     travelDate,
     PNR,
     bookingStatus: "confirmed",
+    seats: seats || [],
+    totalAmount: amount,
+    fare: trainDetails?.fare || 0,
+    source: trainDetails?.source || "N/A",
+    destination: trainDetails?.destination || "N/A",
+    departureTime: trainDetails?.departureTime || "N/A",
+    arrivalTime: trainDetails?.arrivalTime || "N/A",
     createdAt: new Date().toISOString(),
   });
 
@@ -85,15 +113,16 @@ export const createBooking = async (
     paymentDate: new Date().toISOString(),
   });
 
-  // Update seats in schedule
+  // Update seats in schedule based on number of selected seats
+  const seatsToDeduct = seats && seats.length > 0 ? seats.length : 1;
   await updateDocument("trainSchedules", schedule.id, {
-    seatsAvailable: schedule.seatsAvailable - 1,
+    seatsAvailable: schedule.seatsAvailable - seatsToDeduct,
   });
 
   // Also update the train's seatsAvailable for backward compatibility
-  await incrementField("trains", trainId, "seatsAvailable", -1);
+  await incrementField("trains", trainId, "seatsAvailable", -seatsToDeduct);
 
-  return { bookingId: bookingDoc.id, PNR, coach, seatNumber };
+  return { bookingId: bookingDoc.id, PNR, coach, seatNumber, seats };
 };
 
 export const getUserBookings = (userId: string) =>

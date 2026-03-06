@@ -1,5 +1,6 @@
 import { Booking } from "@/services/bookingService";
-import { Ticket, X } from "lucide-react";
+import { Ticket, X, Download } from "lucide-react";
+import { generateTicketPDF } from "@/utils/ticketPDF";
 
 interface Props {
   booking: Booking;
@@ -48,15 +49,46 @@ const TicketCard = ({ booking, onCancel }: Props) => (
       </div>
     </div>
 
-    {onCancel && booking.bookingStatus === "confirmed" && (
-      <button
-        onClick={() => onCancel(booking)}
-        className="mt-4 flex items-center gap-1 rounded-lg bg-destructive/10 px-4 py-2 text-sm font-medium text-destructive transition hover:bg-destructive/20"
-      >
-        <X className="h-3.5 w-3.5" />
-        Cancel Booking
-      </button>
-    )}
+    <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:gap-2">
+      {booking.bookingStatus === "confirmed" && (
+        <button
+          onClick={() => {
+            const success = generateTicketPDF({
+              PNR: booking.PNR,
+              trainName: booking.trainName || "",
+              trainNumber: booking.trainNumber || "",
+              source: booking.source || "N/A",
+              destination: booking.destination || "N/A",
+              departureTime: booking.departureTime || "N/A",
+              arrivalTime: booking.arrivalTime || "N/A",
+              travelDate: booking.travelDate,
+              passengerName: booking.passengerName,
+              coach: booking.coach,
+              seatNumber: String(booking.seatNumber),
+              fare: booking.fare || 0,
+              totalPrice: booking.totalAmount || 0,
+              bookingStatus: booking.bookingStatus,
+            });
+            if (!success) {
+              alert("Failed to download ticket. Check console for details.");
+            }
+          }}
+          className="flex items-center gap-1 rounded-lg bg-primary/10 px-4 py-2 text-sm font-medium text-primary transition hover:bg-primary/20"
+        >
+          <Download className="h-3.5 w-3.5" />
+          Download Ticket
+        </button>
+      )}
+      {onCancel && booking.bookingStatus === "confirmed" && (
+        <button
+          onClick={() => onCancel(booking)}
+          className="flex items-center gap-1 rounded-lg bg-destructive/10 px-4 py-2 text-sm font-medium text-destructive transition hover:bg-destructive/20"
+        >
+          <X className="h-3.5 w-3.5" />
+          Cancel Booking
+        </button>
+      )}
+    </div>
   </div>
 );
 
